@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <meta
+    name="description"
+    content="Effective Accelerationism (e/acc). X payouts fuel my coffee runs—dunking on Doomers while posters unite against old-school EA circles. Buy $e/acc with Arc USDC."
+  />
+  <title>e/acc — Effective Accelerationism</title>
+  <link rel="icon" href="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Orbitron:wght@500;700;800&family=Sora:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ["Orbitron", "sans-serif"],
+            sans: ["Sora", "sans-serif"],
+            serif: ['"Instrument Serif"', "serif"],
+          },
+          colors: {
+            ion: "#7df9ff",
+            void: "#070414",
+            nebula: "#c084fc",
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    ::selection {
+      background: #7df9ff;
+      color: #041018;
+    }
+
+    :focus-visible {
+      outline: 2px solid #7df9ff;
+      outline-offset: 3px;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(8, 6, 24, 0.72), rgba(8, 6, 24, 0.58));
+      border: 1px solid rgba(125, 249, 255, 0.28);
+      box-shadow:
+        inset 0 1px 0 rgba(125, 249, 255, 0.18),
+        0 24px 80px rgba(0, 0, 0, 0.38);
+      backdrop-filter: blur(18px);
+    }
+
+    .text-glow {
+      text-shadow:
+        0 0 18px rgba(125, 249, 255, 0.45),
+        0 0 2px rgba(255, 255, 255, 0.65);
+    }
+
+    .logo-glow {
+      animation: glow 3.6s ease-in-out infinite;
+    }
+
+    .ticker-track {
+      animation: ticker 32s linear infinite;
+    }
+
+    .hud-grid {
+      background-image:
+        linear-gradient(rgba(125, 249, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 249, 255, 0.07) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at 68% 28%, #000 10%, transparent 68%);
+    }
+
+    @keyframes glow {
+      0%,
+      100% {
+        filter: drop-shadow(0 0 14px rgba(125, 249, 255, 0.55));
+      }
+      50% {
+        filter:
+          drop-shadow(0 0 28px rgba(125, 249, 255, 0.95))
+          drop-shadow(0 0 48px rgba(192, 132, 252, 0.45));
+      }
+    }
+
+    @keyframes ticker {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      .logo-glow,
+      .ticker-track,
+      .spin-slow,
+      .spin-rev {
+        animation: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden bg-void font-sans text-cyan-50 antialiased">
+  <div class="pointer-events-none fixed inset-0 -z-30">
+    <img
+      src="banner.jpg"
+      alt=""
+      width="2448"
+      height="816"
+      class="h-full w-full object-cover object-center"
+    />
+  </div>
+  <div
+    class="pointer-events-none fixed inset-0 -z-20 bg-[radial-gradient(ellipse_at_72%_32%,rgba(7,4,20,0.18),rgba(7,4,20,0.78)_72%)]"
+  ></div>
+  <div class="hud-grid pointer-events-none fixed inset-0 -z-10 opacity-70"></div>
+
+  <header class="sticky top-0 z-50 border-b border-ion/20 bg-void/55 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3">
+      <a href="#top" class="flex items-center gap-3">
+        <img
+          src="logo.png"
+          alt=""
+          width="236"
+          height="236"
+          class="h-11 w-11 rounded-full object-cover ring-2 ring-ion/70 shadow-[0_0_18px_rgba(125,249,255,0.55)]"
+        />
+        <span class="leading-tight">
+          <span class="block font-display text-sm tracking-[0.18em] text-ion text-glow">e/acc</span>
+          <span class="block text-xs text-cyan-100/80">Effective Accelerationism</span>
+        </span>
+      </a>
+
+      <nav class="flex flex-wrap items-center gap-2 sm:gap-3" aria-label="Primary">
+        <a href="#loop" class="rounded-full px-3 py-2 text-sm text-cyan-100 hover:text-ion">The loop</a>
+        <a href="#how-to-buy" class="rounded-full px-3 py-2 text-sm text-cyan-100 hover:text-ion">How to Buy</a>
+        <a href="#chart" class="rounded-full px-3 py-2 text-sm text-cyan-100 hover:text-ion">Chart</a>
+        <a
+          href="https://x.com/eaccarc"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Effective Accelerationism on X"
+          class="grid h-11 w-11 place-items-center overflow-hidden rounded-xl border border-ion/40 bg-black shadow-[0_0_18px_rgba(125,249,255,0.28)]"
+        >
+          <img src="x.png" alt="" width="554" height="554" class="h-full w-full object-cover" />
+        </a>
+        <a
+          href="https://argus.world/token/TBA"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-full bg-gradient-to-r from-ion to-sky-400 px-4 py-2.5 text-sm font-semibold text-void shadow-[0_0_24px_rgba(125,249,255,0.45)] hover:brightness-110"
+        >
+          Buy Now
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="overflow-hidden border-b border-ion/15 bg-void/40" aria-hidden="true">
+    <div class="ticker-track flex w-max gap-8 py-2 font-display text-[11px] tracking-[0.28em] text-ion/90">
+      <p class="flex gap-8 px-4">
+        <span>e/acc</span><span>EFFECTIVE ACCELERATIONISM</span><span>ARC USDC</span>
+        <span>X PAYOUTS</span><span>COFFEE RUNS</span><span>DUNK THE DOOMERS</span>
+        <span>POSTERS UNITE</span><span>OLD-SCHOOL EA CIRCLES</span>
+      </p>
+      <p class="flex gap-8 px-4">
+        <span>e/acc</span><span>EFFECTIVE ACCELERATIONISM</span><span>ARC USDC</span>
+        <span>X PAYOUTS</span><span>COFFEE RUNS</span><span>DUNK THE DOOMERS</span>
+        <span>POSTERS UNITE</span><span>OLD-SCHOOL EA CIRCLES</span>
+      </p>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="mx-auto grid min-h-[calc(100vh-8rem)] max-w-6xl items-center gap-10 px-5 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:py-20">
+      <div class="order-2 glass rounded-[28px] p-6 sm:p-8 lg:order-1 lg:p-10">
+        <p class="inline-flex items-center gap-2 rounded-full border border-ion/30 bg-cyan-400/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] text-ion">
+          <span class="h-1.5 w-1.5 rounded-full bg-ion shadow-[0_0_10px_#7df9ff]"></span>
+          On Arc · paid in USDC
+        </p>
+
+        <h1 class="mt-6">
+          <span class="block text-sm font-semibold uppercase tracking-[0.34em] text-cyan-100/90 sm:text-base">
+            Effective Accelerationism
+          </span>
+          <span class="mt-3 block font-display text-6xl font-extrabold leading-none text-glow sm:text-7xl md:text-8xl">
+            <span class="bg-gradient-to-r from-white via-ion to-sky-300 bg-clip-text text-transparent">e</span><span class="text-nebula">/</span><span class="bg-gradient-to-r from-ion via-sky-300 to-fuchsia-300 bg-clip-text text-transparent">acc</span>
+          </span>
+        </h1>
+
+        <p class="mt-5 max-w-xl text-base leading-relaxed text-cyan-50/90 sm:text-lg">
+          $e/acc is the ticker for the pit. X payouts fuel the coffee, the coffee fuels the posts, and the posts are aimed straight at Doomers and the old EA salon.
+        </p>
+
+        <blockquote class="mt-6 border-l-2 border-ion pl-4 font-serif text-2xl italic leading-snug text-cyan-50 sm:text-[1.7rem]">
+          “X payouts fuel my coffee runs—dunking on Doomers while posters unite against old-school EA circles.”
+        </blockquote>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <a
+            href="https://argus.world/token/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-ion to-sky-400 px-6 py-3 text-sm font-semibold text-void shadow-[0_0_28px_rgba(125,249,255,0.5)] hover:brightness-110"
+          >
+            Buy Now
+          </a>
+          <a
+            href="https://dexscreener.com/arc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-full border border-ion/50 bg-void/40 px-6 py-3 text-sm font-semibold text-ion hover:bg-ion/10"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2 12.5 5.2 8l2.3 2.4L11 4.5 14 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Chart
+          </a>
+          <a
+            href="https://x.com/eaccarc"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Effective Accelerationism on X"
+            class="inline-flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-ion/40 bg-black shadow-[0_0_18px_rgba(125,249,255,0.28)]"
+          >
+            <img src="x.png" alt="" width="554" height="554" class="h-full w-full object-cover" />
+          </a>
+        </div>
+
+        <div class="mt-8 rounded-2xl border border-ion/25 bg-black/35 p-4">
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p class="text-[11px] font-semibold uppercase tracking-[0.24em] text-ion">Contract · CA</p>
+              <p id="ca-value" class="mt-1 break-all font-display text-2xl tracking-[0.22em] text-white text-glow">TBA</p>
+            </div>
+            <button
+              type="button"
+              data-copy-ca
+              class="inline-flex items-center justify-center rounded-full border border-nebula/60 bg-fuchsia-500/10 px-5 py-2.5 text-sm font-semibold text-fuchsia-100 hover:bg-fuchsia-400/20"
+            >
+              <span data-copy-label>Copy CA</span>
+            </button>
+          </div>
+          <p id="copy-status" class="sr-only" aria-live="polite"></p>
+          <p class="mt-3 text-sm text-cyan-100/75">Copy it. Match it on Argus before you swap Arc USDC.</p>
+        </div>
+      </div>
+
+      <div class="order-1 flex justify-center lg:order-2">
+        <div class="relative">
+          <div class="absolute inset-0 scale-125 rounded-full bg-cyan-400/25 blur-3xl"></div>
+          <div class="spin-slow pointer-events-none absolute -inset-4 animate-[spin_9s_linear_infinite] rounded-full border-2 border-transparent border-r-ion border-t-ion"></div>
+          <div class="spin-rev pointer-events-none absolute -inset-8 animate-[spin_16s_linear_infinite_reverse] rounded-full border border-transparent border-b-nebula border-l-fuchsia-300/80"></div>
+          <img
+            src="logo.png"
+            alt="Effective Accelerationism"
+            width="236"
+            height="236"
+            class="logo-glow relative h-64 w-64 rounded-full object-cover ring-2 ring-ion/80 sm:h-80 sm:w-80"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="loop" class="scroll-mt-24 mx-auto max-w-6xl px-5 pb-8">
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <p class="font-display text-xs tracking-[0.28em] text-ion">THE LOOP</p>
+          <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Three clauses. One ticker.</h2>
+        </div>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <article class="glass rounded-3xl p-6">
+          <p class="font-display text-[11px] tracking-[0.22em] text-ion">01 · X PAYOUTS</p>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Coffee runs</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/85">
+            The timeline pays for the espresso. That is the whole economy: post, get paid, stay caffeinated, post again. $e/acc just moves the receipt onto Arc.
+          </p>
+        </article>
+        <article class="glass rounded-3xl p-6">
+          <p class="font-display text-[11px] tracking-[0.22em] text-nebula">02 · THE DUNK</p>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Doomers</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/85">
+            Deceleration is a mood board. Posters answer it in public, quote-tweet first, chart open in the other tab. The dunk is the product.
+          </p>
+        </article>
+        <article class="glass rounded-3xl p-6">
+          <p class="font-display text-[11px] tracking-[0.22em] text-ion">03 · THE SPLIT</p>
+          <h3 class="mt-3 text-2xl font-semibold text-white">Old-school EA</h3>
+          <p class="mt-3 text-sm leading-relaxed text-cyan-50/85">
+            The old circles wanted a working group. Posters wanted a contract, a wallet, and everyone in the replies. Unite there. Leave the salon.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how-to-buy" class="scroll-mt-24 mx-auto max-w-6xl px-5 py-16">
+      <div class="glass rounded-[28px] p-6 sm:p-8 lg:p-10">
+        <p class="font-display text-xs tracking-[0.28em] text-ion">LAUNCH SEQUENCE</p>
+        <div class="mt-2 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <h2 class="text-3xl font-semibold text-white sm:text-4xl">How to Buy $e/acc</h2>
+          <p class="max-w-md text-sm leading-relaxed text-cyan-50/80">
+            Four steps. The spend is Arc USDC — on Arc that same USDC pays gas. Then get back to the coffee runs.
+          </p>
+        </div>
+
+        <ol class="relative mt-10 grid gap-4 md:grid-cols-4">
+          <div class="pointer-events-none absolute left-[8%] right-[8%] top-8 hidden h-px bg-gradient-to-r from-transparent via-ion/70 to-transparent md:block"></div>
+
+          <li class="relative rounded-2xl border border-ion/20 bg-black/30 p-5">
+            <span class="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-ion to-sky-500 font-display text-sm text-void">01</span>
+            <h3 class="mt-4 text-lg font-semibold text-white">Add Arc</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cyan-50/80">
+              Open MetaMask or another EVM wallet and switch to the Arc network. No scavenger hunt for a native gas coin.
+            </p>
+          </li>
+          <li class="relative rounded-2xl border border-ion/20 bg-black/30 p-5">
+            <span class="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-ion to-sky-500 font-display text-sm text-void">02</span>
+            <h3 class="mt-4 text-lg font-semibold text-white">Load Arc USDC</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cyan-50/80">
+              Bridge or buy USDC on Arc. That balance is the fuel: it covers the fee and it buys $e/acc. Keep a little extra for gas.
+            </p>
+          </li>
+          <li class="relative rounded-2xl border border-ion/20 bg-black/30 p-5">
+            <span class="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-ion to-sky-500 font-display text-sm text-void">03</span>
+            <h3 class="mt-4 text-lg font-semibold text-white">Open the market</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cyan-50/80">
+              Hit Buy Now to land on Argus. Connect the wallet. Copy the CA on this page and match it to the market before you spend.
+            </p>
+          </li>
+          <li class="relative rounded-2xl border border-ion/20 bg-black/30 p-5">
+            <span class="relative z-10 grid h-10 w-10 place-items-center rounded-full bg-gradient-to-br from-nebula to-fuchsia-400 font-display text-sm text-void">04</span>
+            <h3 class="mt-4 text-lg font-semibold text-white">Swap for $e/acc</h3>
+            <p class="mt-2 text-sm leading-relaxed text-cyan-50/80">
+              Enter your Arc USDC amount, read the quote, and confirm. When it lands, check the chart — then go dunk a Doomer.
+            </p>
+          </li>
+        </ol>
+
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a
+            href="https://argus.world/token/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-ion to-sky-400 px-6 py-3 text-sm font-semibold text-void shadow-[0_0_28px_rgba(125,249,255,0.45)] hover:brightness-110"
+          >
+            Buy Now
+          </a>
+          <button
+            type="button"
+            data-copy-ca
+            class="inline-flex items-center justify-center rounded-full border border-ion/40 px-6 py-3 text-sm font-semibold text-ion hover:bg-ion/10"
+          >
+            <span data-copy-label>Copy CA</span>
+          </button>
+          <p class="text-sm text-cyan-100/70">CA <span class="font-display tracking-[0.18em] text-white">TBA</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="chart" class="scroll-mt-24 mx-auto max-w-6xl px-5 pb-20">
+      <div class="mb-5 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <p class="font-display text-xs tracking-[0.28em] text-ion">DEXSCREENER · ARC</p>
+          <h2 class="mt-2 text-3xl font-semibold text-white sm:text-4xl">Chart</h2>
+          <p class="mt-2 max-w-xl text-sm leading-relaxed text-cyan-50/80">
+            Live embed for the $e/acc pair. Same destination as the Chart button. The scoreboard for everyone still posting through the coffee.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://dexscreener.com/arc/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full border border-ion/50 px-5 py-2.5 text-sm font-semibold text-ion hover:bg-ion/10"
+          >
+            Chart
+          </a>
+          <a
+            href="https://argus.world/token/TBA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-ion to-sky-400 px-5 py-2.5 text-sm font-semibold text-void hover:brightness-110"
+          >
+            Buy Now
+          </a>
+        </div>
+      </div>
+
+      <div class="relative glass rounded-[28px] p-3 sm:p-4">
+        <span class="pointer-events-none absolute left-4 top-4 h-4 w-4 border-l-2 border-t-2 border-ion"></span>
+        <span class="pointer-events-none absolute right-4 top-4 h-4 w-4 border-r-2 border-t-2 border-ion"></span>
+        <span class="pointer-events-none absolute bottom-4 left-4 h-4 w-4 border-b-2 border-l-2 border-nebula"></span>
+        <span class="pointer-events-none absolute bottom-4 right-4 h-4 w-4 border-b-2 border-r-2 border-nebula"></span>
+        <iframe
+          title="e/acc chart on Dexscreener"
+          src="https://dexscreener.com/arc/TBA?embed=1&loadChartSettings=0&trades=0&tabs=0&info=0&chartLeftToolbar=0&chartDefaultOnMobile=1&chartTheme=dark&theme=dark&chartStyle=1&chartType=usd&interval=15"
+          class="h-[480px] w-full rounded-2xl border border-ion/15 bg-black md:h-[560px]"
+          loading="lazy"
+          allow="fullscreen"
+        ></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-ion/20 bg-void/70 backdrop-blur-md">
+    <div class="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-8 sm:flex-row sm:items-center sm:justify-between">
+      <div class="flex items-center gap-3">
+        <img src="logo.png" alt="" width="236" height="236" class="h-10 w-10 rounded-full object-cover ring-1 ring-ion/60" />
+        <div>
+          <p class="font-display text-sm tracking-[0.16em] text-ion">e/acc</p>
+          <p class="text-xs text-cyan-100/75">Effective Accelerationism</p>
+        </div>
+      </div>
+      <p class="max-w-md text-xs leading-relaxed text-cyan-100/65">
+        Not financial advice. Match the CA before you swap Arc USDC for $e/acc.
+      </p>
+      <a
+        href="https://x.com/eaccarc"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Effective Accelerationism on X"
+        class="grid h-11 w-11 place-items-center overflow-hidden rounded-xl border border-ion/40 bg-black"
+      >
+        <img src="x.png" alt="" width="554" height="554" class="h-full w-full object-cover" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const CA = "TBA";
+
+    document.querySelectorAll("[data-copy-ca]").forEach((button) => {
+      button.addEventListener("click", async () => {
+        const label = button.querySelector("[data-copy-label]");
+        const status = document.getElementById("copy-status");
+        try {
+          await navigator.clipboard.writeText(CA);
+        } catch (error) {
+          const field = document.createElement("textarea");
+          field.value = CA;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.left = "-9999px";
+          document.body.appendChild(field);
+          field.select();
+          document.execCommand("copy");
+          field.remove();
+        }
+        if (label) label.textContent = "Copied";
+        if (status) status.textContent = "Contract address copied";
+        window.setTimeout(() => {
+          if (label) label.textContent = "Copy CA";
+          if (status) status.textContent = "";
+        }, 1400);
+      });
+    });
+  </script>
+</body>
+</html>
